@@ -108,6 +108,10 @@ function Get-MarketRows {
     if ($m.Success) {
       $price = ($m.Groups["price"].Value -replace "\s+or\s+more", " or more" -replace "\s+or\s+less", " or less").Trim()
       $qty = $m.Groups["qty"].Value
+      if ($price -match "^[^\d\s]+$") {
+        $price = "$price$qty"
+        $qty = ""
+      }
       $price = $price -replace "\s+", ""
       $price = $price -replace "ormore", " or more"
       $price = $price -replace "orless", " or less"
@@ -142,6 +146,10 @@ function Get-MarketSnapshot {
   $buyRaw = ([regex]::Match($buyLine, "at\s+(?<p>.+?)\s+or lower")).Groups["p"].Value
   $sellMoney = Get-Money $sellRaw
   $buyMoney = Get-Money $buyRaw
+  $sellRows = Get-MarketRows $lines ($sellLineIndex + 1) "Buy"
+  $buyRows = Get-MarketRows $lines ($buyLineIndex + 1) "Sell"
+  if ($null -eq $sellMoney.Number -and $sellRows.Count -gt 0) { $sellMoney = Get-Money $sellRows[0][0] }
+  if ($null -eq $buyMoney.Number -and $buyRows.Count -gt 0) { $buyMoney = Get-Money $buyRows[0][0] }
 
   return @{
     name = $Item.Name
@@ -152,8 +160,8 @@ function Get-MarketSnapshot {
     diff = Get-DiffDisplay $sellMoney $buyMoney
     listings = $sellTotal
     requests = $buyTotal
-    sellRows = Get-MarketRows $lines ($sellLineIndex + 1) "Buy"
-    buyRows = Get-MarketRows $lines ($buyLineIndex + 1) "Sell"
+    sellRows = $sellRows
+    buyRows = $buyRows
   }
 }
 

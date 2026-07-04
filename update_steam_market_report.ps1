@@ -146,6 +146,10 @@ function Get-MarketRows {
     if ($m.Success) {
       $price = ($m.Groups["price"].Value -replace "\s+or\s+more", " or more" -replace "\s+or\s+less", " or less").Trim()
       $qty = $m.Groups["qty"].Value
+      if ($price -match "^[^\d\s]+$") {
+        $price = "$price$qty"
+        $qty = ""
+      }
       $price = $price -replace "\s+", ""
       $price = $price -replace "ormore", "以上"
       $price = $price -replace "orless", "以下"
@@ -189,6 +193,8 @@ function Get-MarketSnapshot {
 
   $sellRows = Get-MarketRows $lines ($sellLineIndex + 1) "Buy"
   $buyRows = Get-MarketRows $lines ($buyLineIndex + 1) "Sell"
+  if ($null -eq $sellMoney.Number -and $sellRows.Count -gt 0) { $sellMoney = Get-Money $sellRows[0][0] }
+  if ($null -eq $buyMoney.Number -and $buyRows.Count -gt 0) { $buyMoney = Get-Money $buyRows[0][0] }
 
   return @{
     name = $Item.Name
