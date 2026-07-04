@@ -257,6 +257,12 @@
                                              "buy":  "",
                                              "sell":  "",
                                              "diff":  ""
+                                         },
+                                         {
+                                             "time":  "2026-07-05 00:54",
+                                             "buy":  "¥169",
+                                             "sell":  "¥169",
+                                             "diff":  "¥0"
                                          }
                                      ],
     "Empire 10th Anniversary Coin":  [
@@ -517,6 +523,12 @@
                                              "buy":  "",
                                              "sell":  "",
                                              "diff":  ""
+                                         },
+                                         {
+                                             "time":  "2026-07-05 00:54",
+                                             "buy":  "¥17",
+                                             "sell":  "¥17",
+                                             "diff":  "¥0"
                                          }
                                      ],
     "Dimensional Arrow (Beyond) A":  [
@@ -777,6 +789,12 @@
                                              "buy":  "",
                                              "sell":  "",
                                              "diff":  ""
+                                         },
+                                         {
+                                             "time":  "2026-07-05 00:54",
+                                             "buy":  "¥202",
+                                             "sell":  "¥374",
+                                             "diff":  "¥172"
                                          }
                                      ],
     "Kingdom 50th Anniversary Coin":  [
@@ -1037,6 +1055,12 @@
                                               "buy":  "",
                                               "sell":  "",
                                               "diff":  ""
+                                          },
+                                          {
+                                              "time":  "2026-07-05 00:54",
+                                              "buy":  "¥67",
+                                              "sell":  "¥67",
+                                              "diff":  "¥0"
                                           }
                                       ],
     "Frozen Orb (Arcana) A":  [
@@ -1297,6 +1321,12 @@
                                       "buy":  "",
                                       "sell":  "",
                                       "diff":  ""
+                                  },
+                                  {
+                                      "time":  "2026-07-05 00:54",
+                                      "buy":  "¥530",
+                                      "sell":  "¥553",
+                                      "diff":  "¥23"
                                   }
                               ],
     "Knight Boots (Arcana) A":  [
@@ -1557,6 +1587,12 @@
                                         "buy":  "",
                                         "sell":  "",
                                         "diff":  ""
+                                    },
+                                    {
+                                        "time":  "2026-07-05 00:54",
+                                        "buy":  "¥39",
+                                        "sell":  "¥39",
+                                        "diff":  "¥0"
                                     }
                                 ]
 }
